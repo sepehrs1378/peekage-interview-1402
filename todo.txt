@@ -1,0 +1,6 @@
+
+[ ] write code
+[ ] dockerize
+[ ] understand code
+[ ] remove useless files/code
+[ ] do TODOs (search in vscode)
