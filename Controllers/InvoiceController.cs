@@ -15,6 +15,8 @@ public class InvoiceController : ControllerBase
     [HttpGet("getinvoice/{id}")]
     public async Task<ActionResult<Invoice>> GetInvoice(int id)
     {
+        Console.WriteLine("GET called");
+
         var invoice = await _context.Invoices.FindAsync(id);
 
         if (invoice == null)
@@ -28,6 +30,8 @@ public class InvoiceController : ControllerBase
     [HttpPost("registerinvoice")]
     public async Task<ActionResult<Invoice>> RegisterInvoice(Invoice invoice)
     {
+        Console.WriteLine("POST called");
+
         _context.Invoices.Add(invoice);
         await _context.SaveChangesAsync();
 
