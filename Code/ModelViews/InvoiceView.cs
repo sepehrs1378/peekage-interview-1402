@@ -4,6 +4,7 @@ public class InvoiceView
     public string BuyerName { get; set; }
     public string PhoneNumber { get; set; }
     public List<ItemView> Items { get; set; }
+    public int TotalCost { get; set; }
 
     public InvoiceView(Invoice invoice)
     {
@@ -11,5 +12,6 @@ public class InvoiceView
         BuyerName = invoice.BuyerName;
         PhoneNumber = invoice.PhoneNumber;
         Items = invoice.Items.Select(i => new ItemView(i)).ToList();
+        TotalCost = invoice.TotalCost;
     }
 }

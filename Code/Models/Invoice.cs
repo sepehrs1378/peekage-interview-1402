@@ -4,6 +4,7 @@ public class Invoice
     public required string BuyerName { get; set; }
     public required string PhoneNumber { get; set; }
     public required List<Item> Items { get; set; }
+    public required int TotalCost { get; set; }
 
     public Invoice()
     {

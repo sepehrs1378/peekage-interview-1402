@@ -1,6 +1,6 @@
 
-[ ] write code
+[x] write code
 [ ] dockerize
 [ ] understand code
 [ ] remove useless files/code
-[ ] do TODOs (search in vscode)
+[x] do TODOs (search in vscode)

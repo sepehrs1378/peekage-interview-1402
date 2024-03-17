@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InvoiceApp.Migrations
 {
     [DbContext(typeof(InvoiceDbContext))]
-    [Migration("20240316220432_InitialCreate")]
+    [Migration("20240317203030_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -31,6 +31,9 @@ namespace InvoiceApp.Migrations
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("TotalCost")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 

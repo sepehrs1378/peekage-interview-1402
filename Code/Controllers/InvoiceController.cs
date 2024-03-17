@@ -7,10 +7,12 @@ using Microsoft.EntityFrameworkCore;
 public class InvoiceController : ControllerBase
 {
     private readonly InvoiceDbContext _context;
+    private readonly IMessenger _messanger;
 
-    public InvoiceController(InvoiceDbContext context)
+    public InvoiceController(InvoiceDbContext context, IMessenger messenger)
     {
         _context = context;
+        _messanger = messenger;
     }
 
     [HttpGet("getall")]
@@ -47,7 +49,8 @@ public class InvoiceController : ControllerBase
         {
             BuyerName = invoiceDto.BuyerName,
             PhoneNumber = invoiceDto.PhoneNumber,
-            Items = new List<Item>()
+            Items = new List<Item>(),
+            TotalCost = invoiceDto.Items.Select(i => i.UnitPrice * i.Count).Sum()
         };
 
         foreach (var ItemDto in invoiceDto.Items)
@@ -64,6 +67,8 @@ public class InvoiceController : ControllerBase
 
         _context.Invoices.Add(invoice);
         await _context.SaveChangesAsync();
+
+        _messanger.sendMessage($"An invoice with ID {invoice.Id} has been registered. Total cost is {invoice.TotalCost}.");
 
         return CreatedAtAction(nameof(GetInvoice), new { id = invoice.Id }, new InvoiceView(invoice));
     }

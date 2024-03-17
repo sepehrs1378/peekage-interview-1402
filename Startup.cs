@@ -19,6 +19,13 @@ public class Startup
     {
         services.AddControllers();
 
+        // Configure messaging channel
+        if (Configuration["MessagingChannel"] == "WebApi")
+            services.AddScoped<IMessenger, WebApiChannel>();
+        else if (Configuration["MessagingChannel"] == "GsmModem")
+            services.AddScoped<IMessenger, GsmModemChannel>();
+        else throw new Exception("Undefined messaging channel");
+
         // Configure SQLite Connection
         services.AddDbContext<InvoiceDbContext>(options =>
             options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
