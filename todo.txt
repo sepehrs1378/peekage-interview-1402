@@ -1,6 +1,7 @@
-
 [x] write code
 [ ] dockerize
 [ ] understand code
 [ ] remove useless files/code
+[ ] validate input
 [x] do TODOs (search in vscode)
+[ ] complete README
