@@ -5,6 +5,7 @@ dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL // not needed?
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet tool install --global dotnet-ef // needed? if used 'dotnet ef' yes...
 dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Newtonsoft.Json // not needed?
 ```
 
 ## Init db
@@ -16,4 +17,9 @@ dotnet ef migrations add InitialCreate
 Do the migration.
 ```
 dotnet ef database update
+```
+
+## Run server
+```
+dotnet run --urls="http://localhost:5000"
 ```

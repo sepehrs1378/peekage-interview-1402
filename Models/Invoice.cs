@@ -1,7 +1,12 @@
 public class Invoice
 {
     public int Id { get; set; }
-    public string BuyerName { get; set; }
-    public string PhoneNumber { get; set; }
-    public List<Item> Items { get; set; }
+    public required string BuyerName { get; set; }
+    public required string PhoneNumber { get; set; }
+    public required List<Item> Items { get; set; }
+
+    public Invoice()
+    {
+        Items = new List<Item>();
+    }
 }
