@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-public class InvoiceDbContext : Microsoft.EntityFrameworkCore.DbContext
+public class InvoiceDbContext : DbContext
 {
     public InvoiceDbContext(DbContextOptions<InvoiceDbContext> options)
         : base(options)
