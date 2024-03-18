@@ -2,18 +2,10 @@
 
 ## Install requirements
 ```
-dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet tool install --global dotnet-ef
-dotnet add package Microsoft.EntityFrameworkCore.Design
 ```
 
 ## Initialize database
-Create initial migration.
-```
-dotnet ef migrations add InitialCreate
-```
-
-Do the migration.
 ```
 dotnet ef database update
 ```
@@ -25,12 +17,13 @@ dotnet run --urls="http://localhost:5000"
 ```
 
 # SMS
-SMSs will be showed in the terminal when the register request is made (/api/invoice/register).
-An SMS has the id of the invoice and its total cost.
+- SMSs will be showed in the terminal when the register request is made (/api/invoice/register). 
+An SMS has the ID of the invoice and its total cost.
+- The channel is determined in the `appsettings.json`. It can be `WebApi` or `GsmModem`.
 
 # APIs
 ## GET /api/invoice/getall
-Returns a list of all invoices.
+Returns all invoices.
 
 ### Request
 - Method: GET
